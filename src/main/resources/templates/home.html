@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<head   th:replace="plantillas/menu :: head">
+	<title>Prueba</title>
+</head>
+<body>
+	<br>
+	<hr>
+	<h1 class="text-center text-success h1">Prueba Java Web Service</h1>
+
+
+	<br>
+	<h2 th:text="${res}">
+	</h2>
+
+		<div class="text-center">
+			<a class="btn btn-outline-primary btn-lg" th:href="@{/}">SALIR</a>
+
+		</div>
+		<br><br><br>
+		
+		<footer th:replace="plantillas/menu :: footer"></footer>
+</body>
+</html>
