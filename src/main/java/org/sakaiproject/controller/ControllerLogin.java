@@ -1,5 +1,7 @@
 package org.sakaiproject.controller;
 
+import org.sakaiproject.client.ServiceLogin;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping
 public class ControllerLogin {
 
+	@Autowired
+	protected ServiceLogin callServi;
+	
 	@GetMapping(value = "/")
 	public String index() {
 		return "index";
@@ -26,5 +31,14 @@ public class ControllerLogin {
 		model.addAttribute("res", id+ "   "+pw);
 		return "home";
 	}
+	
+	@GetMapping(value = "/home")
+	public String prueba(Model model) {
+		
+		model.addAttribute("res", callServi.login("123", "321"));
+		
+		return "home";
+	}
+	
 	
 }
